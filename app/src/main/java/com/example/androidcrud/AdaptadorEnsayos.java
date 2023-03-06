@@ -102,7 +102,7 @@ public class AdaptadorEnsayos extends RecyclerView.Adapter<AdaptadorEnsayos.View
         }
 
         public void setInstrumento(String instrumento) {
-            this.instrumento.setText("Instrumento: " + instrumento);
+            this.instrumento.setText(instrumento);
         }
 
         public void setEnsayos(String ensayos) {

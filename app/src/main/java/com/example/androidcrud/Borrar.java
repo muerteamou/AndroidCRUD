@@ -74,8 +74,8 @@ public class Borrar extends AppCompatActivity {
                 Intent i1 = new Intent(this, Anyadir.class);
                 startActivity(i1);
                 break;
-            case R.id.Borrar:
-                Intent i2 = new Intent(this, Borrar.class);
+            case R.id.Musicos:
+                Intent i2 = new Intent(this, MainActivity.class);
                 startActivity(i2);
                 break;
             case R.id.Resultado:
@@ -88,12 +88,9 @@ public class Borrar extends AppCompatActivity {
         return true;
     }
 
-    public static void borrarMusico(TextView musico) {
-        String textView = musico.getText().toString();
-        String[] nombreMusico = textView.split(":");
-        String nMusico = nombreMusico[1].replaceAll("^\\\\s*", "");
-        System.out.println(nMusico);
-        db.execSQL("DELETE from musicos WHERE musico LIKE " + "'" + nMusico + "'");
+    public static void borrarMusico(String musico) {
+
+        db.execSQL("DELETE from musicos WHERE musico LIKE " + "'" + musico + "'");
 
     }
 

@@ -43,6 +43,16 @@ public class AdaptadorBorrado extends RecyclerView.Adapter<AdaptadorBorrado.View
         holder.setMusico(aux);
         aux = aInstrumento.get(position);
         holder.setInstrumento(aux);
+        int positionFixed = holder.getAdapterPosition();
+        holder.boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String musico = aMusico.get(positionFixed);
+                aMusico.remove(positionFixed);
+                Borrar.borrarMusico(musico);
+                notifyItemRemoved(positionFixed);
+            }
+        });
     }
 
     //Número total de filas que vamos a tener
@@ -61,7 +71,8 @@ public class AdaptadorBorrado extends RecyclerView.Adapter<AdaptadorBorrado.View
             musico = itemView.findViewById(R.id.tvNombre);
             instrumento = itemView.findViewById(R.id.tvInstrumento);
             boton = itemView.findViewById(R.id.botonDel);
-            boton.setOnClickListener(this);
+
+
 
         }
 
@@ -70,7 +81,7 @@ public class AdaptadorBorrado extends RecyclerView.Adapter<AdaptadorBorrado.View
         }
 
         public void setMusico(String musico) {
-            this.musico.setText("Nombre:" + musico);
+            this.musico.setText(musico);
         }
 
         public String getInstrumento() {
@@ -78,12 +89,12 @@ public class AdaptadorBorrado extends RecyclerView.Adapter<AdaptadorBorrado.View
         }
 
         public void setInstrumento(String instrumento) {
-            this.instrumento.setText("Instrumento: " +instrumento);
+            this.instrumento.setText(instrumento);
         }
 
         @Override
         public void onClick(View view) {
-            Borrar.borrarMusico(musico);
+
         }
     }
 

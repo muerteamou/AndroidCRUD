@@ -79,10 +79,11 @@ public class Resultado extends AppCompatActivity {
                 Intent i2 = new Intent(this, Borrar.class);
                 startActivity(i2);
                 break;
-            case R.id.Resultado:
-                Intent i3 = new Intent(this, Resultado.class);
+            case R.id.Musicos:
+                Intent i3 = new Intent(this, MainActivity.class);
                 startActivity(i3);
                 break;
+
             default:
                 break;
         }

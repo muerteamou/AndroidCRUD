@@ -38,8 +38,8 @@ public class Anyadir extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-            case R.id.Anyadir:
-                Intent i1 = new Intent(this, Anyadir.class);
+            case R.id.Musicos:
+                Intent i1 = new Intent(this, MainActivity.class);
                 startActivity(i1);
                 break;
             case R.id.Borrar:
@@ -55,10 +55,11 @@ public class Anyadir extends AppCompatActivity {
         }
         return true;
     }
-
     public void anyadir(View view){
         db.execSQL("INSERT INTO musicos values ('" + etNombre.getText().toString() + "' , '" + etInstrumento.getText().toString() + "' , '" + "0" + "');");
         mostrar();
     }
+
+
 
 }

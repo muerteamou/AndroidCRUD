@@ -13,7 +13,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -37,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
         db.execSQL("CREATE TABLE IF NOT EXISTS musicos(musico VARCHAR, instrumento VARCHAR, ensayos int)");
 
 
-        mostrar();
-
+        if (nombreMusicos.isEmpty() || nombreInstrumento.isEmpty()) {
+            mostrar();
+        }
         RecyclerView recyclerView = findViewById(R.id.recycleView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adaptador = new Adaptador(this, nombreMusicos, nombreInstrumento);
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public static void mostrar(){
+    public static void mostrar() {
         String result = "";
         Cursor c = db.rawQuery("SELECT * FROM musicos", null);
         if (c.getCount() == 0) {

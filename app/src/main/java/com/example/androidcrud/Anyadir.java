@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Anyadir extends AppCompatActivity {
     SQLiteDatabase db;
-    EditText etNombre ;
+    EditText etNombre;
     EditText etInstrumento;
 
 
@@ -55,11 +55,9 @@ public class Anyadir extends AppCompatActivity {
         }
         return true;
     }
-    public void anyadir(View view){
+
+    public void anyadir(View view) {
         db.execSQL("INSERT INTO musicos values ('" + etNombre.getText().toString() + "' , '" + etInstrumento.getText().toString() + "' , '" + "0" + "');");
         mostrar();
     }
-
-
-
 }

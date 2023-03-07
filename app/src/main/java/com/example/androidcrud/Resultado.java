@@ -1,5 +1,7 @@
 package com.example.androidcrud;
 
+import static com.example.androidcrud.MainActivity.mostrar;
+
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -94,14 +96,14 @@ public class Resultado extends AppCompatActivity {
         String textoEnsayo = ensayos.getText().toString();
         String textMusico = musico.getText().toString();
         int numEnsayo = 0;
-        textMusico = textMusico.substring(0, textMusico.length()-2);
+        textMusico = textMusico.substring(0, textMusico.length() - 2);
 
         Cursor c = db.rawQuery("SELECT ensayos FROM musicos WHERE musico = " + "'" + textMusico + "'", null);
-        while (c.moveToNext()){
-        numEnsayo = c.getInt(0);
+        while (c.moveToNext()) {
+            numEnsayo = c.getInt(0);
         }
         numEnsayo++;
-        db.execSQL("UPDATE musicos SET ensayos = " + numEnsayo + " WHERE musico = " + "'" + textMusico+ "'");
+        db.execSQL("UPDATE musicos SET ensayos = " + numEnsayo + " WHERE musico = " + "'" + textMusico + "'");
         return numEnsayo;
     }
 
@@ -109,14 +111,14 @@ public class Resultado extends AppCompatActivity {
         String textoEnsayo = ensayos.getText().toString();
         String textMusico = musico.getText().toString();
         int numEnsayo = 0;
-        textMusico = textMusico.substring(0, textMusico.length()-2);
+        textMusico = textMusico.substring(0, textMusico.length() - 2);
 
         Cursor c = db.rawQuery("SELECT ensayos FROM musicos WHERE musico = " + "'" + textMusico + "'", null);
-        while (c.moveToNext()){
+        while (c.moveToNext()) {
             numEnsayo = c.getInt(0);
         }
         numEnsayo--;
-        db.execSQL("UPDATE musicos SET ensayos = " + numEnsayo + " WHERE musico = " + "'" + textMusico+ "'");
+        db.execSQL("UPDATE musicos SET ensayos = " + numEnsayo + " WHERE musico = " + "'" + textMusico + "'");
         return numEnsayo;
     }
 }

@@ -17,7 +17,12 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_weight="1"/>
-
+    <TextView
+        android:id="@+id/tvTituloEnsayo"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="Ensayos: "
+        android:layout_weight="1"/>
     <TextView
         android:id="@+id/tvEnsayo"
         android:layout_width="50dp"

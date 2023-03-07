@@ -1,5 +1,7 @@
 package com.example.androidcrud;
 
+import static com.example.androidcrud.MainActivity.mostrar;
+
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -7,7 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -91,7 +92,7 @@ public class Borrar extends AppCompatActivity {
     public static void borrarMusico(String musico) {
 
         db.execSQL("DELETE from musicos WHERE musico LIKE " + "'" + musico + "'");
-
+        mostrar();
     }
 
 }

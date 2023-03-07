@@ -1,7 +1,6 @@
 package com.example.androidcrud;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +14,11 @@ import java.util.List;
 
 public class AdaptadorEnsayos extends RecyclerView.Adapter<AdaptadorEnsayos.ViewHolder> {
 
-    private List<String> aMusico;
-    private List<String> aInstrumento;
-    private List<Integer> aEnsayos;
+    private static List<String> aMusico;
+    private static List<String> aInstrumento;
+    private static List<Integer> aEnsayos;
 
-    private LayoutInflater aInflater;
+    private static LayoutInflater aInflater;
 
 
 //Los datos nos llegan a través del constructor

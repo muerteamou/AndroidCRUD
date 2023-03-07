@@ -20,7 +20,6 @@ public class AdaptadorBorrado extends RecyclerView.Adapter<AdaptadorBorrado.View
 
 
     //Los datos nos llegan a través del constructor
-
     public AdaptadorBorrado(Context context, List<String> musico, List<String> instrumento) {
         this.aMusico = musico;
         this.aInstrumento = instrumento;
@@ -71,9 +70,6 @@ public class AdaptadorBorrado extends RecyclerView.Adapter<AdaptadorBorrado.View
             musico = itemView.findViewById(R.id.tvNombre);
             instrumento = itemView.findViewById(R.id.tvInstrumento);
             boton = itemView.findViewById(R.id.botonDel);
-
-
-
         }
 
         public String getMusico() {
@@ -94,7 +90,6 @@ public class AdaptadorBorrado extends RecyclerView.Adapter<AdaptadorBorrado.View
 
         @Override
         public void onClick(View view) {
-
         }
     }
 

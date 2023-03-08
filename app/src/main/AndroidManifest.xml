@@ -25,16 +25,28 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".Anyadir"
+        <activity
+            android:name=".Anyadir"
             android:exported="true">
 
         </activity>
-        <activity android:name=".Borrar"
+        <activity
+            android:name=".Borrar"
             android:exported="true">
 
         </activity>
-        <activity android:name=".Resultado"
+        <activity
+            android:name=".Resultado"
+            android:exported="true"></activity>
+        <activity
+            android:name=".Aptos"
             android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".NoAptos"
+            android:exported="true">
+
         </activity>
 
     </application>

@@ -1,7 +1,5 @@
 package com.example.androidcrud;
 
-import static com.example.androidcrud.MainActivity.mostrar;
-
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -11,7 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,45 +16,45 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+
 import java.util.ArrayList;
 
-public class Resultado extends AppCompatActivity {
+public class Aptos extends AppCompatActivity {
 
-    AdaptadorEnsayos adaptador;
+    AdaptadorAptos adaptador;
     static SQLiteDatabase db;
     ArrayList<String> nombreMusicos = new ArrayList<>();
     ArrayList<String> nombreInstrumento = new ArrayList<>();
-    ArrayList<Integer> numeroEnsayos = new ArrayList<>();
-
-    private Button btnAptos;
+    private Button btnVolver;
     private Button btnNoAptos;
+
 
 
     protected void onCreate(Bundle SavedInstaceState) {
         super.onCreate(SavedInstaceState);
-        setContentView(R.layout.ensayos_musico);
+        setContentView(R.layout.aptos);
 
-        RecyclerView recyclerView = findViewById(R.id.rv_del_ensayos);
+        RecyclerView recyclerView = findViewById(R.id.rv_aptos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         String result = "";
         db = openOrCreateDatabase("orquesta", Context.MODE_PRIVATE, null);
-        Cursor c = db.rawQuery("SELECT * FROM musicos", null);
+        Cursor c = db.rawQuery("SELECT * FROM musicos WHERE ensayos > 4", null);
         if (c.getCount() == 0) {
             result = "No hay datos en la bd";
         } else {
             while (c.moveToNext()) {
                 nombreMusicos.add(c.getString(0));
                 nombreInstrumento.add(c.getString(1));
-                numeroEnsayos.add(c.getInt(2));
             }
 
         }
         c.close();
 
-        recyclerView = findViewById(R.id.rv_del_ensayos);
+        recyclerView = findViewById(R.id.rv_aptos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adaptador = new AdaptadorEnsayos(this, nombreMusicos, nombreInstrumento, numeroEnsayos);
+        adaptador = new AdaptadorAptos(this, nombreMusicos, nombreInstrumento);
 
         //3. Ponemos una linea de separación entre elementos
 
@@ -67,13 +64,13 @@ public class Resultado extends AppCompatActivity {
         //4. Añadimos el adaptador a la vista
         recyclerView.setAdapter(adaptador);
 
-        Intent aptos = new Intent(this, Aptos.class);
+        Intent volver = new Intent(this, Resultado.class);
 
-        btnAptos = findViewById(R.id.btnAptos);
-        btnAptos.setOnClickListener(new View.OnClickListener() {
+        btnVolver = findViewById(R.id.btnVolver);
+        btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(aptos);
+                startActivity(volver);
             }
         });
 
@@ -114,35 +111,5 @@ public class Resultado extends AppCompatActivity {
                 break;
         }
         return true;
-    }
-
-    public static int sumarEnsayo(TextView ensayos, TextView musico) {
-        String textoEnsayo = ensayos.getText().toString();
-        String textMusico = musico.getText().toString();
-        int numEnsayo = 0;
-        textMusico = textMusico.substring(0, textMusico.length() - 2);
-
-        Cursor c = db.rawQuery("SELECT ensayos FROM musicos WHERE musico = " + "'" + textMusico + "'", null);
-        while (c.moveToNext()) {
-            numEnsayo = c.getInt(0);
-        }
-        numEnsayo++;
-        db.execSQL("UPDATE musicos SET ensayos = " + numEnsayo + " WHERE musico = " + "'" + textMusico + "'");
-        return numEnsayo;
-    }
-
-    public static int restarEnsayo(TextView ensayos, TextView musico) {
-        String textoEnsayo = ensayos.getText().toString();
-        String textMusico = musico.getText().toString();
-        int numEnsayo = 0;
-        textMusico = textMusico.substring(0, textMusico.length() - 2);
-
-        Cursor c = db.rawQuery("SELECT ensayos FROM musicos WHERE musico = " + "'" + textMusico + "'", null);
-        while (c.moveToNext()) {
-            numEnsayo = c.getInt(0);
-        }
-        numEnsayo--;
-        db.execSQL("UPDATE musicos SET ensayos = " + numEnsayo + " WHERE musico = " + "'" + textMusico + "'");
-        return numEnsayo;
     }
 }

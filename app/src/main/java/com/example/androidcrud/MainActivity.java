@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void mostrar() {
+        nombreMusicos.clear();
+        nombreInstrumento.clear();
+        numeroEnsayos.clear();
+
         String result = "";
         Cursor c = db.rawQuery("SELECT * FROM musicos", null);
         if (c.getCount() == 0) {

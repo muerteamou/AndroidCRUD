@@ -6,9 +6,10 @@
 
     <TextView
         android:id="@+id/tvNombre"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:minWidth="150dp"
+        android:minWidth="200dp"
+        android:maxWidth="200dp"
         android:text="TextView"
         android:textSize="20dp"
         android:layout_marginLeft="5sp"

@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tvEnsayos"
+        android:id="@+id/tvAptos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Ensayos"
+        android:text="Músicos que pueden tocar"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -18,21 +18,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_del_ensayos"
+        android:id="@+id/rv_aptos"
         android:layout_width="match_parent"
         android:layout_height="490dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEnsayos" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAptos" />
 
     <Button
-        android:id="@+id/btnAptos"
+        android:id="@+id/btnVolver"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="44dp"
-        android:text="Aptos"
+        android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnNoAptos"
         app:layout_constraintHorizontal_bias="0.116"

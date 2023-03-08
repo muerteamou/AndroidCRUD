@@ -42,14 +42,14 @@ public class AdaptadorBorrado extends RecyclerView.Adapter<AdaptadorBorrado.View
         holder.setMusico(aux);
         aux = aInstrumento.get(position);
         holder.setInstrumento(aux);
-        int positionFixed = holder.getAdapterPosition();
         holder.boton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String musico = aMusico.get(positionFixed);
-                aMusico.remove(positionFixed);
+
+                String musico = aMusico.get(holder.getAdapterPosition());
+                aMusico.remove(holder.getAdapterPosition());
                 Borrar.borrarMusico(musico);
-                notifyItemRemoved(positionFixed);
+                notifyItemRemoved(holder.getAdapterPosition());
             }
         });
     }

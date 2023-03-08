@@ -31,6 +31,7 @@ public class Resultado extends AppCompatActivity {
 
     private Button btnAptos;
     private Button btnNoAptos;
+    private Button btnReset;
 
 
     protected void onCreate(Bundle SavedInstaceState) {
@@ -51,7 +52,6 @@ public class Resultado extends AppCompatActivity {
                 nombreInstrumento.add(c.getString(1));
                 numeroEnsayos.add(c.getInt(2));
             }
-
         }
         c.close();
 
@@ -86,7 +86,17 @@ public class Resultado extends AppCompatActivity {
             }
         });
 
+        btnReset = findViewById(R.id.btnReset);
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resetEnsayos();
+            }
+        });
+
     }
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -145,4 +155,10 @@ public class Resultado extends AppCompatActivity {
         db.execSQL("UPDATE musicos SET ensayos = " + numEnsayo + " WHERE musico = " + "'" + textMusico + "'");
         return numEnsayo;
     }
+
+    private void resetEnsayos() {
+        db.execSQL("UPDATE musicos SET ensayos = 0");
+
+    }
+
 }

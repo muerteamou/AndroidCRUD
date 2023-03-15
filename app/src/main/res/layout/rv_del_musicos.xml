@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5sp"
+        android:layout_weight="1"
+        android:maxWidth="200dp"
+        android:minWidth="200dp"
+        android:text="TextView"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvInstrumento"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:minWidth="150dp"
+        android:paddingLeft="5sp"
+        android:text="TextView"
+        android:textColor="@color/payne_grey"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/botonDel"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="2dp"
+        android:layout_weight="1"
+        android:backgroundTint="@color/payne_grey"
+        android:text="Borrar" />
+</LinearLayout>
